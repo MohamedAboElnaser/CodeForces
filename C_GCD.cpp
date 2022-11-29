@@ -14,8 +14,32 @@ using namespace std;
                 /******functions Definition******/
 inline void in_out();
 inline void solve();
+ map<int,int>m;
+ void primeFactors(int n) 
+{ 
+     
+    while (n%2 == 0) 
+    { 
+        m[2]++; 
+        n = n/2; 
+    } 
+     
+   
+    for (int i = 3; i*i <= (n); i = i+2) 
+    { 
+       
+        while (n%i == 0) 
+        { 
+            m[i]++; 
+            n = n/i; 
+        } 
+    } 
+     
+    
+    if (n > 2) 
+       m[n]++;
+}
  
-  
 int main(){
    in_out();  
     //TC                                        
@@ -31,8 +55,10 @@ inline void in_out(){
     #endif  
 }   
 inline  void solve(){
- ll a,b;   cin>>a>>b;
-    ll gcd=__gcd(a,b);
-    cout<<gcd<<" "<<a*(b/gcd);
+    ll n;   cin>>n;
+    primeFactors(n);
+    for(auto i : m)
+    cout<<i.first<<" "<<i.second<<'\n';
+    
 }
 
