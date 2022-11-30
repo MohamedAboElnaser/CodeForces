@@ -14,9 +14,9 @@ using namespace std;
                 /******functions Definition******/
 inline void in_out();
 inline void solve();
- map<int,int>m;
- void primeFactors(int n) 
-{   
+map<int,int>m;
+bool is_almost_prime(int n){
+  {   
     while (n%2 == 0) 
     { 
         m[2]++; 
@@ -34,15 +34,18 @@ inline void solve();
      
     if (n > 2) 
        m[n]++;
+}  
+    if(m.size()==2)return true;
+    else return false;
 }
- 
+  
 int main(){
    in_out();  
     //TC                                        
     solve(); 
    return 0;
 }
-                                  /******functions Declaration******/               
+                                    /******functions Declaration******/               
 inline void in_out(){
     ios::sync_with_stdio(0), cin.tie(0), cout.tie();    
     #ifndef ONLINE_JUDGE
@@ -51,10 +54,14 @@ inline void in_out(){
     #endif  
 }   
 inline  void solve(){
-    ll n;   cin>>n;
-    primeFactors(n);
-    for(auto i : m)
-    cout<<i.first<<" "<<i.second<<'\n';
-    
-}
 
+    int n; cin>>n;
+    int counter=0;
+    for(int i=1;i<=n;i++){
+        if(is_almost_prime(i))
+            counter++;
+           
+           m.clear();
+    }
+        cout<<counter;
+}
