@@ -18,7 +18,7 @@ inline void solve();
   
 int main(){
    in_out();  
-    TC                                        
+    //TC                                        
     solve(); 
    return 0;
 }
@@ -31,6 +31,16 @@ inline void in_out(){
     #endif  
 }   
 inline  void solve(){
-    int x; cin>>x;
-    cout<<1<<" "<<x-1<<'\n';
+ 
+    ll a,b,c;  cin>>a>>b>>c;
+    
+    if(c==0){
+        if(a==b)cout<<"YES";
+        else cout<<"NO";
+    }
+    else{
+         if(((b-a)%c==0)&&((b-a)/c) >=0)
+            cout<<"YES";
+        else cout<<"NO";
+    }
 }
